@@ -1,0 +1,12 @@
+<%= form_with(model: @search, method: :post, data: { target_url: search_analytics_searches_path, submit_target: 'form', controller: 'analytics', action: 'keyup->analytics#suggest' }) do |form| %>
+  <div class="mb-6">
+    <%= form.label :query, "Search Query", class: "block mb-2 text-sm font-medium text-gray-700" %>
+    <%= form.text_field :query, class: "form-control w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition", placeholder: "Type your search...", data: { action: "blur->analytics#hideSuggestions", analytics_target: "input"} %>
+  </div>
+  <div id="analytics_results" data-analytics-target="suggestions" class="mb-4">
+    <%= render 'analytics' %>
+  </div>
+
+  <%= form.hidden_field :user_ip, value: @search.user_ip %>
+  <%= form.submit "Search", class: "btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md shadow-md transition" %>
+<% end %>

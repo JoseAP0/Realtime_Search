@@ -1,0 +1,5 @@
+<div>
+  <% @analytics.each do |analytic| %>
+    <div data-action="click->analytics#search_suggestion"><%= analytic.query %></div>
+  <% end %>
+</div>

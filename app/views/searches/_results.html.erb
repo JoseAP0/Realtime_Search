@@ -1,0 +1,9 @@
+<ul class="list-group">
+  <% @search_results.each do |result| %>
+    <li class="list-group-item">
+      <strong><%= result.title %></strong>
+      <p><%= truncate(result.body, length: 100) %></p>
+      <p><em>Published at: <%= result.created_at.strftime("%B %d, %Y") if result.created_at %></em></p>
+    </li>
+  <% end %>
+</ul>
