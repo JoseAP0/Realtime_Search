@@ -1,5 +1,9 @@
-<div>
+<div class="mt-2">
   <% @analytics.each do |analytic| %>
-    <div data-action="click->analytics#search_suggestion"><%= analytic.query %></div>
+    <div
+      data-action="click->analytics#search_suggestion"
+      class="p-2 mb-1 bg-gray-100 hover:bg-gray-200 cursor-pointer rounded-md">
+      <%= button_to analytic.query, class: "w-full text-left cursor-pointer" %>
+    </div>
   <% end %>
 </div>

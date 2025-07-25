@@ -44,6 +44,22 @@ gem 'faker'
 gem 'tailwindcss-ruby'
 gem 'tailwindcss-rails'
 
+#Set up Rspec
+gem 'rspec-rails'
+gem 'shoulda-matchers'
+gem 'rails-controller-testing'
+
+#Set up coverage metrics
+gem 'simplecov'
+gem 'simplecov_json_formatter'
+
+#Set up factory bot
+gem 'factory_bot_rails'
+
+#Set up database-cleaner
+gem 'database_cleaner-active_record'
+
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

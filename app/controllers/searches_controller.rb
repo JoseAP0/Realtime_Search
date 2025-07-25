@@ -8,9 +8,7 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
-    unless Search.is_duplicate(@search)
-      @search.save
-    end
+    @search.save
 
     @search_results = Article.title_search(@search.query)
 

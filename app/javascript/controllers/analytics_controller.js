@@ -50,6 +50,8 @@ export default class extends Controller {
     }
 
     search_suggestion(event) {
+        event.preventDefault()
+
         const text = event.target.textContent.trim()
 
         this.inputTarget.value = text

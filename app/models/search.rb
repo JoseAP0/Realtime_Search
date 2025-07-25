@@ -1,14 +1,12 @@
 class Search < ApplicationRecord
 
-  def self.analytics_search(query, ip)
-    self.where('query LIKE ? and user_ip = ?', "%#{query}%", "#{ip}")
+  validates_presence_of :query
+
+  def self.analytics_search(query, user_ip)
+    self.where('query LIKE ? and user_ip = ?', "%#{query}%", "#{user_ip}")
         .select('query, user_ip, count(*) as count_order')
         .group('query, user_ip')
         .order('count_order DESC')
         .limit(5)
-  end
-
-  def self.is_duplicate(search)
-    self.where(search.query, search.ip).count > 0
   end
 end
